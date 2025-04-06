@@ -8,42 +8,12 @@ import DefaultLayout from '../components/layouts/DefaultLayout';
 import Button from '../components/common/Button';
 import Card from '../components/common/Card';
 import { ArrowRight, Code, Layout, Smartphone, LineChart, Award, ChevronRight } from 'lucide-react';
+import dynamic from 'next/dynamic';
 
-// Hero section particle system
-const Particles = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(50)].map((_, i) => {
-        const size = Math.random() * 2 + 1;
-        const speed = Math.random() * 150 + 50;
-        
-        return (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full opacity-50"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: size,
-              height: size,
-            }}
-            animate={{
-              y: [0, -500],
-              opacity: [0, 0.4, 0],
-            }}
-            transition={{
-              duration: speed / 10,
-              repeat: Infinity,
-              repeatType: 'loop',
-              delay: Math.random() * 20,
-              ease: 'linear',
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-};
+// Import Particles component dynamically with SSR disabled
+const Particles = dynamic(() => import('../components/sections/Particles'), { 
+  ssr: false 
+});
 
 // Animated text for hero section
 const AnimatedText = ({ text }: { text: string }) => {
@@ -235,7 +205,9 @@ export default function HomePage() {
     <DefaultLayout>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center py-16 overflow-hidden">
+        {/* Only render Particles on client-side */}
         <Particles />
+        
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -243,17 +215,17 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="mb-4 inline-block py-1 px-3 bg-neon-cyan/10 rounded-full border border-neon-cyan/30"
+                className="mb-4 inline-block py-1 px-3 bg-accent-teal/10 rounded-full border border-accent-teal/30"
               >
-                <span className="text-neon-cyan text-sm font-medium">Redefining Digital Experiences</span>
+                <span className="text-accent-teal text-sm font-medium">Redefining Digital Experiences</span>
               </motion.div>
               
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-ink-dark">
                 <AnimatedText text="Creating Digital Products From The Future" />
               </h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl"
+                className="text-xl md:text-2xl text-ink-light mb-8 max-w-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
@@ -283,12 +255,12 @@ export default function HomePage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.7 }}
             >
-              <div className="w-full h-[500px] relative animated-gradient-border glass-panel overflow-hidden">
+              <div className="w-full h-[500px] relative animated-border card-panel overflow-hidden">
                 <div className="p-4 h-full flex items-center justify-center">
                   <motion.div
                     className="w-full h-full relative rounded-lg overflow-hidden"
                     animate={{ 
-                      boxShadow: ['0 0 10px rgba(10, 236, 240, 0.3)', '0 0 20px rgba(10, 236, 240, 0.6)', '0 0 10px rgba(10, 236, 240, 0.3)'] 
+                      boxShadow: ['0 0 10px rgba(11, 166, 170, 0.3)', '0 0 20px rgba(11, 166, 170, 0.6)', '0 0 10px rgba(11, 166, 170, 0.3)'] 
                     }}
                     transition={{ 
                       duration: 4,
@@ -309,7 +281,7 @@ export default function HomePage() {
               
               {/* Floating elements around the image */}
               <motion.div 
-                className="absolute -top-8 -right-8 w-24 h-24 bg-neon-purple/30 rounded-full blur-2xl"
+                className="absolute -top-8 -right-8 w-24 h-24 bg-accent-purple/30 rounded-full blur-2xl"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   opacity: [0.4, 0.6, 0.4]
@@ -321,7 +293,7 @@ export default function HomePage() {
                 }}
               />
               <motion.div 
-                className="absolute -bottom-10 -left-10 w-32 h-32 bg-neon-cyan/20 rounded-full blur-2xl"
+                className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-teal/20 rounded-full blur-2xl"
                 animate={{ 
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.5, 0.3]
@@ -343,10 +315,10 @@ export default function HomePage() {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="flex flex-col items-center">
-            <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center items-start p-1">
+            <span className="text-sm text-ink-lightest mb-2">Scroll to explore</span>
+            <div className="w-6 h-10 border-2 border-sky-dark rounded-full flex justify-center items-start p-1">
               <motion.div 
-                className="w-1.5 h-1.5 bg-neon-cyan rounded-full"
+                className="w-1.5 h-1.5 bg-accent-teal rounded-full"
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
@@ -360,12 +332,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <FadeInWhenVisible>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-ink-dark">
                 Delivering <span className="gradient-text">Exceptional</span> Digital Solutions
               </h2>
             </FadeInWhenVisible>
             <FadeInWhenVisible delay={0.2}>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-ink-light">
                 Our team specializes in creating innovative digital products that combine cutting-edge technology with stunning design.
               </p>
             </FadeInWhenVisible>
@@ -390,20 +362,20 @@ export default function HomePage() {
       {/* Case Studies Section */}
       <section className="py-20 md:py-32 relative">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-64 -right-64 w-96 h-96 bg-neon-purple/20 rounded-full blur-3xl opacity-30" />
-          <div className="absolute -bottom-64 -left-64 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl opacity-30" />
+          <div className="absolute -top-64 -right-64 w-96 h-96 bg-accent-purple/20 rounded-full blur-3xl opacity-30" />
+          <div className="absolute -bottom-64 -left-64 w-96 h-96 bg-accent-teal/20 rounded-full blur-3xl opacity-30" />
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
             <div className="max-w-2xl mb-8 md:mb-0">
               <FadeInWhenVisible>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-ink-dark">
                   Our <span className="gradient-text">Latest</span> Case Studies
                 </h2>
               </FadeInWhenVisible>
               <FadeInWhenVisible delay={0.2}>
-                <p className="text-xl text-gray-300">
+                <p className="text-xl text-ink-light">
                   Explore our recent projects and discover how we've helped businesses transform their digital presence.
                 </p>
               </FadeInWhenVisible>
@@ -438,18 +410,18 @@ export default function HomePage() {
       <section className="py-20 md:py-32 relative">
         <div className="container mx-auto px-4 sm:px-6">
           <FadeInWhenVisible>
-            <div className="max-w-4xl mx-auto glass-panel p-8 md:p-12">
+            <div className="max-w-4xl mx-auto card-panel p-8 md:p-12">
               <div className="flex justify-center mb-8">
-                <div className="w-16 h-16 rounded-full bg-neon-purple/20 flex items-center justify-center">
-                  <Award className="w-8 h-8 text-neon-purple" />
+                <div className="w-16 h-16 rounded-full bg-accent-purple/20 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-accent-purple" />
                 </div>
               </div>
-              <blockquote className="text-xl md:text-2xl font-medium text-center text-white mb-8">
+              <blockquote className="text-xl md:text-2xl font-medium text-center text-ink-dark mb-8">
                 "Futura completely transformed our digital presence. Their team delivered a cutting-edge solution that exceeded our expectations and helped us increase conversions by 150%."
               </blockquote>
               <div className="flex flex-col items-center">
-                <p className="font-bold text-white">Sarah Johnson</p>
-                <p className="text-gray-400">Chief Marketing Officer, TechVision Inc.</p>
+                <p className="font-bold text-ink-dark">Sarah Johnson</p>
+                <p className="text-ink-light">Chief Marketing Officer, TechVision Inc.</p>
               </div>
             </div>
           </FadeInWhenVisible>
@@ -462,12 +434,12 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
             <div className="max-w-2xl mb-8 md:mb-0">
               <FadeInWhenVisible>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-ink-dark">
                   Latest <span className="gradient-text">Insights</span>
                 </h2>
               </FadeInWhenVisible>
               <FadeInWhenVisible delay={0.2}>
-                <p className="text-xl text-gray-300">
+                <p className="text-xl text-ink-light">
                   Stay updated with our latest thoughts on technology, design, and digital transformation.
                 </p>
               </FadeInWhenVisible>
@@ -475,7 +447,7 @@ export default function HomePage() {
             <FadeInWhenVisible delay={0.3}>
               <Button href="/blog" variant="outline">
                 View All Articles
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 h-4" />
               </Button>
             </FadeInWhenVisible>
           </div>
@@ -501,18 +473,18 @@ export default function HomePage() {
       {/* Newsletter Section */}
       <section className="py-20 md:py-32 relative">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-80 bg-gradient-to-r from-neon-cyan/20 to-neon-purple/20 rounded-3xl blur-3xl opacity-40" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-80 bg-gradient-to-r from-accent-teal/20 to-accent-purple/20 rounded-3xl blur-3xl opacity-40" />
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto glass-panel p-8 md:p-12 text-center">
+          <div className="max-w-4xl mx-auto card-panel p-8 md:p-12 text-center">
             <FadeInWhenVisible>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-ink-dark">
                 Stay on the cutting edge
               </h2>
             </FadeInWhenVisible>
             <FadeInWhenVisible delay={0.2}>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-ink-light mb-8">
                 Subscribe to our newsletter to receive the latest insights on technology trends, design inspiration, and digital strategy.
               </p>
             </FadeInWhenVisible>
@@ -521,14 +493,14 @@ export default function HomePage() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-grow px-4 py-3 bg-space-dark/60 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 text-white"
+                  className="flex-grow px-4 py-3 bg-white border border-sky-medium/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal/50 text-ink"
                   required
                 />
                 <Button type="submit">Subscribe</Button>
               </form>
             </FadeInWhenVisible>
             <FadeInWhenVisible delay={0.4}>
-              <p className="text-sm text-gray-400 mt-4">
+              <p className="text-sm text-ink-lightest mt-4">
                 By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
               </p>
             </FadeInWhenVisible>
@@ -540,7 +512,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <FadeInWhenVisible>
-            <h2 className="text-2xl font-bold text-center mb-12">
+            <h2 className="text-2xl font-bold text-center mb-12 text-ink-dark">
               Trusted by industry leaders
             </h2>
           </FadeInWhenVisible>
@@ -554,8 +526,8 @@ export default function HomePage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   {/* Replace with actual client logos */}
-                  <div className="w-full h-full flex items-center justify-center bg-space-light/20 rounded-md">
-                    <span className="text-white font-bold">{client.name}</span>
+                  <div className="w-full h-full flex items-center justify-center bg-sky-medium/20 rounded-md">
+                    <span className="text-ink-dark font-bold">{client.name}</span>
                   </div>
                 </motion.div>
               ))}
@@ -567,18 +539,18 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 md:py-32 relative">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -bottom-64 -right-64 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl opacity-30" />
+          <div className="absolute -bottom-64 -right-64 w-96 h-96 bg-accent-teal/20 rounded-full blur-3xl opacity-30" />
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto glass-panel p-8 md:p-12 text-center">
+          <div className="max-w-4xl mx-auto card-panel p-8 md:p-12 text-center">
             <FadeInWhenVisible>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-ink-dark">
                 Ready to build something <span className="gradient-text">amazing</span>?
               </h2>
             </FadeInWhenVisible>
             <FadeInWhenVisible delay={0.2}>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-ink-light mb-8 max-w-2xl mx-auto">
                 Let's collaborate to create innovative digital experiences that drive growth and engage your audience.
               </p>
             </FadeInWhenVisible>

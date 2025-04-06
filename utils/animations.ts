@@ -93,7 +93,7 @@ export const slideInRight: Variants = {
 export const cardHover = {
   whileHover: { 
     y: -10,
-    boxShadow: '0 20px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(10, 236, 240, 0.3)',
+    boxShadow: '0 20px 30px rgba(0, 0, 0, 0.08), 0 0 15px rgba(11, 166, 170, 0.2)',
     transition: { 
       duration: 0.3 
     }
@@ -159,13 +159,13 @@ export const float = {
   }
 };
 
-// Glow pulse animation
-export const glowPulse = {
+// Shine animation
+export const shine = {
   animate: {
     boxShadow: [
-      '0 0 10px rgba(10, 236, 240, 0.5)',
-      '0 0 20px rgba(10, 236, 240, 0.8)',
-      '0 0 10px rgba(10, 236, 240, 0.5)',
+      '0 0 10px rgba(11, 166, 170, 0.3)',
+      '0 0 20px rgba(11, 166, 170, 0.6)',
+      '0 0 10px rgba(11, 166, 170, 0.3)',
     ],
     transition: {
       duration: 2,

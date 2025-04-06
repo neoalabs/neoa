@@ -19,23 +19,23 @@
     }
   }
   
-  @keyframes glow {
+  @keyframes shine {
     0% {
-      box-shadow: 0 0 5px rgba(10, 236, 240, 0.3);
-      text-shadow: 0 0 5px rgba(10, 236, 240, 0.3);
+      box-shadow: 0 0 5px rgba(11, 166, 170, 0.3);
+      text-shadow: 0 0 5px rgba(11, 166, 170, 0.3);
     }
     100% {
-      box-shadow: 0 0 20px rgba(10, 236, 240, 0.6), 0 0 30px rgba(10, 236, 240, 0.4), 0 0 40px rgba(10, 236, 240, 0.2);
-      text-shadow: 0 0 20px rgba(10, 236, 240, 0.6), 0 0 30px rgba(10, 236, 240, 0.4), 0 0 40px rgba(10, 236, 240, 0.2);
+      box-shadow: 0 0 20px rgba(11, 166, 170, 0.6), 0 0 30px rgba(11, 166, 170, 0.4), 0 0 40px rgba(11, 166, 170, 0.2);
+      text-shadow: 0 0 20px rgba(11, 166, 170, 0.6), 0 0 30px rgba(11, 166, 170, 0.4), 0 0 40px rgba(11, 166, 170, 0.2);
     }
   }
   
   @keyframes border-pulse {
     0%, 100% {
-      border-color: rgba(10, 236, 240, 0.3);
+      border-color: rgba(11, 166, 170, 0.3);
     }
     50% {
-      border-color: rgba(10, 236, 240, 0.7);
+      border-color: rgba(11, 166, 170, 0.7);
     }
   }
   
@@ -60,8 +60,8 @@
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+  .animate-shine {
+    animation: shine 2s ease-in-out infinite alternate;
   }
   
   .animate-border {
@@ -103,15 +103,15 @@
   
   .hover-lift:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
   
-  .hover-glow {
+  .hover-shine {
     transition: box-shadow 0.3s ease;
   }
   
-  .hover-glow:hover {
-    box-shadow: 0 0 15px rgba(10, 236, 240, 0.5);
+  .hover-shine:hover {
+    box-shadow: 0 0 15px rgba(11, 166, 170, 0.5);
   }
   
   .hover-scale {
@@ -124,7 +124,7 @@
   
   /* Text typing animation */
   .typing {
-    border-right: 2px solid rgba(10, 236, 240, 0.7);
+    border-right: 2px solid rgba(11, 166, 170, 0.7);
     white-space: nowrap;
     overflow: hidden;
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
@@ -137,16 +137,16 @@
   
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: rgba(10, 236, 240, 0.7) }
+    50% { border-color: rgba(11, 166, 170, 0.7) }
   }
   
   /* Loading animations */
   .loader {
     width: 48px;
     height: 48px;
-    border: 5px solid rgba(255, 255, 255, 0.2);
+    border: 5px solid rgba(200, 217, 241, 0.8);
     border-radius: 50%;
-    border-top-color: #0AECF0;
+    border-top-color: #0BA6AA;
     animation: spin 1s ease-in-out infinite;
   }
   
@@ -158,7 +158,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #0AECF0;
+    background-color: #0BA6AA;
     animation: pulse-scale 1.2s ease-in-out infinite;
   }
   

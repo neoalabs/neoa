@@ -36,7 +36,7 @@ export default function Card({
   metadata,
 }: CardProps) {
   // Base card styles
-  const baseClasses = 'overflow-hidden flex flex-col glass-panel';
+  const baseClasses = 'overflow-hidden flex flex-col card-panel';
   
   // Variant-specific styles
   const variantClasses = {
@@ -53,7 +53,7 @@ export default function Card({
   const cardMotion = hoverEffect ? {
     whileHover: { 
       y: -5,
-      boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(10, 236, 240, 0.3)',
+      boxShadow: '0 15px 30px rgba(0, 0, 0, 0.08), 0 0 15px rgba(11, 166, 170, 0.2)',
       transition: { duration: 0.3 }
     },
     transition: { duration: 0.3 }
@@ -71,14 +71,14 @@ export default function Card({
         return (
           <>
             {icon && (
-              <div className="mb-6 text-neon-cyan">
+              <div className="mb-6 text-accent-teal">
                 {icon}
               </div>
             )}
-            <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
-            {description && <p className="text-gray-300 mb-6">{description}</p>}
+            <h3 className="text-xl font-bold mb-3 text-ink-dark">{title}</h3>
+            {description && <p className="text-ink-light mb-6">{description}</p>}
             {href && (
-              <Link href={href} className="mt-auto text-neon-cyan font-medium flex items-center group">
+              <Link href={href} className="mt-auto text-accent-teal font-medium flex items-center group">
                 {cta}
                 <svg 
                   className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
@@ -113,16 +113,16 @@ export default function Card({
               {tags && tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-3">
                   {tags.map((tag, index) => (
-                    <span key={index} className="text-xs px-2 py-1 rounded-full bg-space-lightest text-neon-cyan">
+                    <span key={index} className="text-xs px-2 py-1 rounded-full bg-sky-light text-accent-teal">
                       {tag}
                     </span>
                   ))}
                 </div>
               )}
-              <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-              {description && <p className="text-gray-300 mb-4">{description}</p>}
+              <h3 className="text-xl font-bold mb-2 text-ink-dark">{title}</h3>
+              {description && <p className="text-ink-light mb-4">{description}</p>}
               {metadata && (
-                <div className="flex justify-between text-sm text-gray-400 mb-4">
+                <div className="flex justify-between text-sm text-ink-lightest mb-4">
                   {Object.entries(metadata).map(([key, value]) => (
                     <div key={key} className="flex items-center">
                       {value}
@@ -131,7 +131,7 @@ export default function Card({
                 </div>
               )}
               {href && (
-                <Link href={href} className="mt-4 neon-button inline-block text-center">
+                <Link href={href} className="mt-4 accent-button inline-block text-center">
                   {cta}
                 </Link>
               )}
@@ -156,7 +156,7 @@ export default function Card({
                 {tags && tags.length > 0 && (
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                     {tags.map((tag, index) => (
-                      <span key={index} className="text-xs px-2 py-1 rounded-full bg-neon-cyan/80 text-space-darkest font-medium">
+                      <span key={index} className="text-xs px-2 py-1 rounded-full bg-accent-teal/90 text-white font-medium">
                         {tag}
                       </span>
                     ))}
@@ -165,10 +165,10 @@ export default function Card({
               </div>
             )}
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-              {description && <p className="text-gray-300 mb-4 line-clamp-2">{description}</p>}
+              <h3 className="text-xl font-bold mb-2 text-ink-dark">{title}</h3>
+              {description && <p className="text-ink-light mb-4 line-clamp-2">{description}</p>}
               {metadata && (
-                <div className="flex justify-between text-sm text-gray-400 mt-4">
+                <div className="flex justify-between text-sm text-ink-lightest mt-4">
                   {Object.entries(metadata).map(([key, value]) => (
                     <div key={key} className="flex items-center">
                       {value}
@@ -194,10 +194,10 @@ export default function Card({
                 />
               </div>
             )}
-            <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
-            {description && <p className="text-gray-300 mb-4">{description}</p>}
+            <h3 className="text-xl font-bold mb-3 text-ink-dark">{title}</h3>
+            {description && <p className="text-ink-light mb-4">{description}</p>}
             {href && (
-              <Link href={href} className="mt-auto text-neon-cyan hover:text-white transition-colors duration-300">
+              <Link href={href} className="mt-auto text-accent-teal hover:text-accent-teal/80 transition-colors duration-300">
                 {cta}
               </Link>
             )}

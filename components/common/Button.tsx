@@ -36,7 +36,7 @@ export default function Button({
   ariaLabel,
 }: ButtonProps) {
   // Base classes
-  const baseClasses = `flex items-center justify-center transition-all duration-300 rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-space-dark ${
+  const baseClasses = `flex items-center justify-center transition-all duration-300 rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-sky-lightest ${
     fullWidth ? 'w-full' : ''
   } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`;
   
@@ -49,10 +49,10 @@ export default function Button({
   
   // Variant classes
   const variantClasses = {
-    primary: `bg-neon-cyan text-space-darkest border border-neon-cyan hover:bg-transparent hover:text-neon-cyan focus:ring-neon-cyan`,
-    secondary: `bg-neon-purple text-white border border-neon-purple hover:bg-transparent hover:text-neon-purple focus:ring-neon-purple`,
-    ghost: `bg-transparent text-white hover:bg-white/10 focus:ring-white`,
-    outline: `bg-transparent border border-white/30 text-white hover:border-white hover:bg-white/10 focus:ring-white`,
+    primary: `bg-accent-teal text-white border border-accent-teal hover:bg-accent-teal/90 hover:shadow-accent focus:ring-accent-teal`,
+    secondary: `bg-accent-purple text-white border border-accent-purple hover:bg-accent-purple/90 hover:shadow-accent focus:ring-accent-purple`,
+    ghost: `bg-transparent text-ink hover:bg-sky-medium/10 focus:ring-accent-teal`,
+    outline: `bg-transparent border border-sky-dark text-ink-dark hover:border-accent-teal hover:text-accent-teal hover:bg-sky-light/50 focus:ring-accent-teal`,
   };
   
   // Combine classes
@@ -73,9 +73,10 @@ export default function Button({
     </>
   );
 
+  // Handle link buttons
   if (href && !disabled) {
     return (
-      <Link href={href} passHref aria-label={ariaLabel}>
+      <Link href={href} legacyBehavior passHref aria-label={ariaLabel}>
         <motion.a className={classes} {...motionProps}>
           {content}
         </motion.a>
@@ -83,6 +84,7 @@ export default function Button({
     );
   }
 
+  // Handle regular buttons
   return (
     <motion.button
       type={type}

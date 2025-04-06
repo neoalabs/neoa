@@ -5,12 +5,14 @@
 
 @layer base {
   body {
-    @apply bg-space text-gray-100 font-sans;
-    background: linear-gradient(to bottom, #0A0F1C, #1A2342);
+    @apply bg-sky text-ink font-sans;
+    background: linear-gradient(to bottom, #F7FAFF, #E1EBFA);
+    color: #1F2937; /* Explicit fallback color for text */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold tracking-tight;
+    @apply font-sans font-bold tracking-tight text-ink-dark;
+    color: #111827; /* Explicit fallback color for headings */
   }
 
   h1 {
@@ -26,48 +28,54 @@
   }
 
   p {
-    @apply font-serif text-base md:text-lg leading-relaxed;
+    @apply font-serif text-base md:text-lg leading-relaxed text-ink;
+    color: #1F2937; /* Explicit fallback color for paragraphs */
   }
 
   a {
-    @apply transition-colors duration-300;
+    @apply text-ink transition-colors duration-300;
+    color: #1F2937; /* Explicit fallback color for links */
   }
 }
 
 @layer components {
-  .neon-border {
-    @apply border border-neon-cyan/50 shadow-neon;
+  .accent-border {
+    @apply border border-accent-teal/50 shadow-accent;
   }
 
-  .glass-panel {
-    @apply bg-space-dark/60 backdrop-blur-md border border-white/10 rounded-2xl;
+  .card-panel {
+    @apply bg-white backdrop-blur-md border border-sky-medium/20 rounded-2xl shadow-soft;
   }
 
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-neon;
+    @apply text-transparent bg-clip-text bg-gradient-accent;
   }
 
-  .neon-button {
-    @apply px-6 py-3 bg-space-dark/80 text-neon-cyan border border-neon-cyan/40 
-           rounded-lg shadow-neon transition-all duration-300 
-           hover:shadow-neon-strong hover:bg-space-dark/90 hover:text-white
-           focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 focus:ring-offset-2 focus:ring-offset-space-dark;
+  .coral-gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-sunrise;
   }
 
-  .animated-gradient-border {
+  .accent-button {
+    @apply px-6 py-3 bg-accent-teal text-white border border-accent-teal/40 
+           rounded-lg shadow-accent transition-all duration-300 
+           hover:shadow-medium hover:bg-accent-teal/90
+           focus:outline-none focus:ring-2 focus:ring-accent-teal/50 focus:ring-offset-2 focus:ring-offset-white;
+  }
+
+  .animated-border {
     @apply relative rounded-xl overflow-hidden;
   }
 
-  .animated-gradient-border::before {
+  .animated-border::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-neon rounded-xl;
+    @apply absolute inset-0 -z-10 bg-gradient-accent rounded-xl;
     background-size: 200% 200%;
     animation: border-rotate 4s linear infinite;
   }
 
-  .animated-gradient-border::after {
+  .animated-border::after {
     content: '';
-    @apply absolute inset-0.5 -z-10 bg-space-dark rounded-lg;
+    @apply absolute inset-0.5 -z-10 bg-white rounded-lg;
   }
 
   @keyframes border-rotate {
@@ -85,15 +93,15 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-space-dark;
+    @apply bg-sky-light;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-space-light rounded-full;
+    @apply bg-sky-dark rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-neon-cyan/50;
+    @apply bg-accent-teal/50;
   }
 }
 

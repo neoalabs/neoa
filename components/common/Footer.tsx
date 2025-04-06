@@ -80,21 +80,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-space-darkest relative overflow-hidden">
+    <footer className="bg-sky-medium/15 relative overflow-hidden">
       {/* Gradient background effects */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-neon-purple/20 rounded-full blur-3xl opacity-20" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl opacity-20" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent-purple/10 rounded-full blur-3xl opacity-30" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-teal/10 rounded-full blur-3xl opacity-30" />
       
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-neon flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-gradient-accent flex items-center justify-center">
                 <span className="text-white font-bold text-xl">F</span>
               </div>
-              <span className="text-white font-bold text-xl">Futura</span>
+              <span className="text-ink-dark font-bold text-xl">Futura</span>
             </div>
-            <p className="text-gray-400 mb-8 max-w-md">
+            <p className="text-ink-light mb-8 max-w-md">
               We build cutting-edge digital experiences that push the boundaries of what's possible online. Our mission is to create technology that feels like it's from tomorrow.
             </p>
             <div className="flex space-x-4">
@@ -102,7 +102,7 @@ export default function Footer() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-neon-cyan transition-colors duration-300"
+                  className="text-ink-light hover:text-accent-teal transition-colors duration-300"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -114,11 +114,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-white text-lg font-medium mb-6">Quick Links</h3>
+            <h3 className="text-ink-dark text-lg font-medium mb-6">Quick Links</h3>
             <ul className="space-y-4">
               {footerNavigation.main.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-neon-cyan transition-colors duration-300">
+                  <Link href={item.href} className="text-ink-light hover:text-accent-teal transition-colors duration-300">
                     {item.name}
                   </Link>
                 </li>
@@ -127,11 +127,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-white text-lg font-medium mb-6">Services</h3>
+            <h3 className="text-ink-dark text-lg font-medium mb-6">Services</h3>
             <ul className="space-y-4">
               {footerNavigation.services.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-neon-cyan transition-colors duration-300">
+                  <Link href={item.href} className="text-ink-light hover:text-accent-teal transition-colors duration-300">
                     {item.name}
                   </Link>
                 </li>
@@ -140,11 +140,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-white text-lg font-medium mb-6">Company</h3>
+            <h3 className="text-ink-dark text-lg font-medium mb-6">Company</h3>
             <ul className="space-y-4">
               {footerNavigation.company.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-neon-cyan transition-colors duration-300">
+                  <Link href={item.href} className="text-ink-light hover:text-accent-teal transition-colors duration-300">
                     {item.name}
                   </Link>
                 </li>
@@ -153,16 +153,16 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-white/10">
+        <div className="mt-12 pt-8 border-t border-sky-medium/30">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-ink-light text-sm">
               &copy; {currentYear} Futura. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-neon-cyan text-sm transition-colors duration-300">
+              <Link href="/privacy" className="text-ink-light hover:text-accent-teal text-sm transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-neon-cyan text-sm transition-colors duration-300">
+              <Link href="/terms" className="text-ink-light hover:text-accent-teal text-sm transition-colors duration-300">
                 Terms of Service
               </Link>
             </div>

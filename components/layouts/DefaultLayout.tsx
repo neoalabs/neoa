@@ -72,7 +72,7 @@ export default function DefaultLayout({
         {openGraph?.image && <meta name="twitter:image" content={openGraph.image} />}
       </Head>
       
-      <div className="flex flex-col min-h-screen bg-gradient-space">
+      <div className="flex flex-col min-h-screen bg-gradient-light">
         <Navigation />
         
         <AnimatePresence mode="wait">

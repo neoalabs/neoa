@@ -74,17 +74,17 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-4 inline-block py-1 px-3 bg-neon-cyan/10 rounded-full border border-neon-cyan/30"
+              className="mb-4 inline-block py-1 px-3 bg-accent-teal/10 rounded-full border border-accent-teal/30"
             >
-              <span className="text-neon-cyan text-sm font-medium">Redefining Digital Experiences</span>
+              <span className="text-accent-teal text-sm font-medium">Redefining Digital Experiences</span>
             </motion.div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-ink-dark">
               <AnimatedText text="Creating Digital Products From The Future" />
             </h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl"
+              className="text-xl md:text-2xl text-ink-light mb-8 max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
@@ -114,12 +114,12 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            <div className="w-full h-[500px] relative animated-gradient-border glass-panel overflow-hidden">
+            <div className="w-full h-[500px] relative animated-border card-panel overflow-hidden">
               <div className="p-4 h-full flex items-center justify-center">
                 <motion.div
                   className="w-full h-full relative rounded-lg overflow-hidden"
                   animate={{ 
-                    boxShadow: ['0 0 10px rgba(10, 236, 240, 0.3)', '0 0 20px rgba(10, 236, 240, 0.6)', '0 0 10px rgba(10, 236, 240, 0.3)'] 
+                    boxShadow: ['0 0 10px rgba(11, 166, 170, 0.3)', '0 0 20px rgba(11, 166, 170, 0.6)', '0 0 10px rgba(11, 166, 170, 0.3)'] 
                   }}
                   transition={{ 
                     duration: 4,
@@ -140,7 +140,7 @@ export default function Hero() {
             
             {/* Floating elements around the image */}
             <motion.div 
-              className="absolute -top-8 -right-8 w-24 h-24 bg-neon-purple/30 rounded-full blur-2xl"
+              className="absolute -top-8 -right-8 w-24 h-24 bg-accent-purple/30 rounded-full blur-2xl"
               animate={{ 
                 scale: [1, 1.2, 1],
                 opacity: [0.4, 0.6, 0.4]
@@ -152,7 +152,7 @@ export default function Hero() {
               }}
             />
             <motion.div 
-              className="absolute -bottom-10 -left-10 w-32 h-32 bg-neon-cyan/20 rounded-full blur-2xl"
+              className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-teal/20 rounded-full blur-2xl"
               animate={{ 
                 scale: [1, 1.3, 1],
                 opacity: [0.3, 0.5, 0.3]
@@ -174,10 +174,10 @@ export default function Hero() {
         transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center items-start p-1">
+          <span className="text-sm text-ink-lightest mb-2">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-sky-dark rounded-full flex justify-center items-start p-1">
             <motion.div 
-              className="w-1.5 h-1.5 bg-neon-cyan rounded-full"
+              className="w-1.5 h-1.5 bg-accent-teal rounded-full"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
