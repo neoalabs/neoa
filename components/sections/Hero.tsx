@@ -4,6 +4,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Button from '../common/Button';
 import { ChevronRight } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+// Import Particles component dynamically with SSR disabled
+const Particles = dynamic(() => import('./Particles'), { 
+  ssr: false 
+});
 
 // Animated text for hero section
 const AnimatedText = ({ text }: { text: string }) => {
@@ -49,46 +55,18 @@ const AnimatedText = ({ text }: { text: string }) => {
   );
 };
 
-// Hero section particle system
-const Particles = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(50)].map((_, i) => {
-        const size = Math.random() * 2 + 1;
-        const speed = Math.random() * 150 + 50;
-        
-        return (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full opacity-50"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: size,
-              height: size,
-            }}
-            animate={{
-              y: [0, -500],
-              opacity: [0, 0.4, 0],
-            }}
-            transition={{
-              duration: speed / 10,
-              repeat: Infinity,
-              repeatType: 'loop',
-              delay: Math.random() * 20,
-              ease: 'linear',
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
 export default function Hero() {
+  // State to track client-side rendering
+  const [isClient, setIsClient] = useState(false);
+  
+  // Set isClient to true after component mounts
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center py-16 overflow-hidden">
-      <Particles />
+      {isClient && <Particles />}
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
